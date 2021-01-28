@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/passObjectData.dart';
 
 void main() {
   runApp(MyApp());
@@ -47,6 +48,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
   // this allows us to access the TextField text
   TextEditingController textFieldController = TextEditingController();
 
@@ -67,14 +69,30 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SecondScreen(text: textToSend,),
+          builder: (context) => SecondScreen(
+            text: textToSend,
+          ),
+        ));
+  }
+
+  void _sendObjectDataToSecondScreen(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => TodosScreen(
+            todos: List.generate(
+              20,
+              (i) => Todo(
+                'Todo $i',
+                'A description of what needs to be done for Todo $i',
+              ),
+            ),
+          ),
         ));
   }
 
   @override
   Widget build(BuildContext context) {
-
-
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -114,7 +132,6 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-
             Padding(
               padding: const EdgeInsets.all(32.0),
               child: TextField(
@@ -125,7 +142,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-
             RaisedButton(
               child: Text(
                 'pass above text go to second screen',
@@ -135,15 +151,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 _sendDataToSecondScreen(context);
               },
             ),
-
             RaisedButton(
               child: Text(
-                'Next Page with animation',
+                'pass object data sample page',
+                style: TextStyle(fontSize: 14),
               ),
+              onPressed: () {
+                _sendObjectDataToSecondScreen(context);
+              },
+            ),
+            RaisedButton(
+                child: Text(
+                  'Next Page with animation',
+                ),
                 onPressed: () {
                   Navigator.of(context).push<void>(_createRoute());
-                }
-            ),
+                }),
           ],
         ),
       ),
@@ -175,13 +198,23 @@ class _Page2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Page HC'),
-      ),
-      body: Center(
-        child: Text('Page HC!', style: Theme.of(context).textTheme.headline4),
-      ),
-    );
+        appBar: AppBar(
+          title: Text('Page HC'),
+        ),
+        body: Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+              Text('Animation push  Page HC!',
+                  style: Theme.of(context).textTheme.bodyText1),
+              RaisedButton(
+                  child: Text(
+                    'Back',
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  })
+            ])));
   }
 }
 
@@ -196,11 +229,21 @@ class SecondScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Second screen')),
       body: Center(
-        child: Text(
-          text,
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+            Text(
+              text,
+              style: TextStyle(fontSize: 24),
+            ),
+            RaisedButton(
+                child: Text(
+                  'Back',
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                }),
+          ])),
     );
   }
 }
