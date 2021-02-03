@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/passObjectData.dart';
+import 'package:flutter_app/englishList.dart';
 
 void main() {
   runApp(MyApp());
@@ -91,6 +92,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 
+  void _goToEnglishListPage(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => EnglishList(),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -165,7 +174,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   'Next Page with animation',
                 ),
                 onPressed: () {
-                  Navigator.of(context).push<void>(_createRoute());
+                  _sendDataToSecondScreen(context);
+                }),
+            RaisedButton(
+                child: Text(
+                  'Go to English List',
+                ),
+                onPressed: () {
+                  _goToEnglishListPage(context);
                 }),
           ],
         ),
