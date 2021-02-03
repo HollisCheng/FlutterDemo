@@ -174,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   'Next Page with animation',
                 ),
                 onPressed: () {
-                  _sendDataToSecondScreen(context);
+                  Navigator.of(context).push<void>(_createRoute());
                 }),
             RaisedButton(
                 child: Text(
