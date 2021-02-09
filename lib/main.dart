@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/networkRequest.dart';
 import 'package:flutter_app/passObjectData.dart';
 import 'package:flutter_app/englishList.dart';
+import 'package:flutter_app/retrofit_api.dart';
 
 void main() {
   runApp(MyApp());
@@ -100,6 +102,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 
+  void _goToNetworkPage(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Nework(),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -182,6 +192,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 onPressed: () {
                   _goToEnglishListPage(context);
+                }),
+            RaisedButton(
+                child: Text(
+                  'Go to nework test',
+                ),
+                onPressed: () {
+                  _goToNetworkPage(context);
                 }),
           ],
         ),
