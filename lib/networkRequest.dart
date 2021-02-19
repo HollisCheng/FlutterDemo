@@ -40,8 +40,14 @@ class _MyAppState extends State<Nework> {
       future: client.getTasks(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          final List<Post> posts = snapshot.data;
-          return _buildPosts(context, posts);
+          if (snapshot.data != null) {
+            final List<Post> posts = snapshot.data;
+            return _buildPosts(context, posts);
+          } else {
+            return Center(
+              child: Text('snapshot.data == null'),
+            );
+          }
         } else {
           return Center(
             child: CircularProgressIndicator(
