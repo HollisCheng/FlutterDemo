@@ -25,6 +25,11 @@ class Post{
 
   Post({this.index, this.name, this.picture, this.gender, this.age, this.email, this.phone, this.company});
 
+  @override
+  String toString() {
+    return 'Post{index: $index, name: $name, picture: $picture, gender: $gender, age: $age, email: $email, phone: $phone, company: $company}';
+  }
+
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
   Map<String, dynamic> toJson() => _$PostToJson(this);
 }
