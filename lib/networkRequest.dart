@@ -53,8 +53,6 @@ class _MyAppState extends State<Nework> {
   }
 
   ListView _buildPosts(BuildContext context, List<Post> posts) {
-    print("post=${posts.toString()}");
-
     return ListView.builder(
       itemCount: posts.length,
       padding: EdgeInsets.all(8),
@@ -69,7 +67,10 @@ class _MyAppState extends State<Nework> {
               posts[index].name,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            subtitle: Text(posts[index].email)
+            subtitle: Text(posts[index].email),
+            onTap: () {
+              print("post[$index]=${posts[index].toString()}");
+            },
           ),
         );
       },
