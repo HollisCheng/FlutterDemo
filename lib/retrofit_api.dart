@@ -7,6 +7,7 @@ part 'retrofit_api.g.dart';
 @RestApi(baseUrl: "https://www.json-generator.com/api/json/get/")
 abstract class RestClient {
   factory RestClient(Dio dio) = _RestClient;
+
   @GET("/ceLGCumWjS?indent=2")
   Future<List<Post>> getTasks();
 }

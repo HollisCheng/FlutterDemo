@@ -34,8 +34,9 @@ class _MyAppState extends State<Nework> {
   }
 
   FutureBuilder<List<Post>> _buildBody(BuildContext context) {
-    final client =
-        RestClient(Dio(BaseOptions(contentType: "application/json")));
+    final dio = Dio(BaseOptions(contentType: "application/json"));
+    dio.interceptors.add(LogInterceptor(responseBody: false));
+    final client = RestClient(dio);
     return FutureBuilder<List<Post>>(
       future: client.getTasks(),
       builder: (context, snapshot) {
