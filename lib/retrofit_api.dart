@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 part 'retrofit_api.g.dart';
 
-@RestApi(baseUrl: "http://www.json-generator.com/api/json/get/")
+@RestApi(baseUrl: "https://www.json-generator.com/api/json/get/")
 abstract class RestClient {
   factory RestClient(Dio dio) = _RestClient;
   @GET("/ceLGCumWjS?indent=2")

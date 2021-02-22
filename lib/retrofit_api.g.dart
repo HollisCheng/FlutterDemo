@@ -20,15 +20,15 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
-      'index': instance.index,
-      'name': instance.name,
-      'picture': instance.picture,
-      'gender': instance.gender,
-      'age': instance.age,
-      'email': instance.email,
-      'phone': instance.phone,
-      'company': instance.company,
-    };
+  'index': instance.index,
+  'name': instance.name,
+  'picture': instance.picture,
+  'gender': instance.gender,
+  'age': instance.age,
+  'email': instance.email,
+  'phone': instance.phone,
+  'company': instance.company,
+};
 
 // **************************************************************************
 // RetrofitGenerator
@@ -37,7 +37,7 @@ Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
 class _RestClient implements RestClient {
   _RestClient(this._dio, {this.baseUrl}) {
     ArgumentError.checkNotNull(_dio, '_dio');
-    baseUrl ??= 'http://www.json-generator.com/api/json/get/';
+    baseUrl ??= 'https://www.json-generator.com/api/json/get/';
   }
 
   final Dio _dio;
