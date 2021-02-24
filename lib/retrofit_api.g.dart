@@ -20,15 +20,15 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
-  'index': instance.index,
-  'name': instance.name,
-  'picture': instance.picture,
-  'gender': instance.gender,
-  'age': instance.age,
-  'email': instance.email,
-  'phone': instance.phone,
-  'company': instance.company,
-};
+      'index': instance.index,
+      'name': instance.name,
+      'picture': instance.picture,
+      'gender': instance.gender,
+      'age': instance.age,
+      'email': instance.email,
+      'phone': instance.phone,
+      'company': instance.company,
+    };
 
 // **************************************************************************
 // RetrofitGenerator
