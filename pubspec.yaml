@@ -31,6 +31,7 @@ dependencies:
   english_words: ^3.1.5
   retrofit: any
   json_annotation: any
+  http: ^0.12.2
 
 dev_dependencies:
   flutter_test:

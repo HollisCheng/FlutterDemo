@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/networkRequest.dart';
 import 'package:flutter_app/passObjectData.dart';
 import 'package:flutter_app/englishList.dart';
-import 'package:flutter_app/retrofit_api.dart';
+import 'package:flutter_app/httpNetworkRequest.dart';
 
 void main() {
   runApp(MyApp());
@@ -110,6 +110,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 
+  void _goToHttpNetworkPage(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HttpNetwork(),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -195,10 +203,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 }),
             RaisedButton(
                 child: Text(
-                  'Go to nework test',
+                  'Go to dio network test',
                 ),
                 onPressed: () {
                   _goToNetworkPage(context);
+                }),
+            RaisedButton(
+                child: Text(
+                  'Go to http network test',
+                ),
+                onPressed: () {
+                  _goToHttpNetworkPage(context);
                 }),
           ],
         ),

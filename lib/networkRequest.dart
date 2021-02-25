@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/retrofit_api.dart';
+import 'package:flutter_app/CustomInterceptors.dart';
 
 import 'retrofit_api.dart';
 
@@ -35,7 +36,7 @@ class _MyAppState extends State<Nework> {
 
   FutureBuilder<List<Post>> _buildBody(BuildContext context) {
     final dio = Dio(BaseOptions(contentType: "application/json"));
-    dio.interceptors.add(LogInterceptor(responseBody: false));
+    dio.interceptors.add(CustomInterceptors());
     final client = RestClient(dio);
     return FutureBuilder<List<Post>>(
       future: client.getTasks(),
